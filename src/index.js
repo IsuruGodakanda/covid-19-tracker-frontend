@@ -2,7 +2,6 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import * as serviceWorker from '../public/serviceWorker';
 import './styles.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -15,8 +14,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register('../public/serviceWorker.js')
-      .then((reg) => console.log('Service Worker: Registered (Pages)'))
-      .catch((err) => console.log(`Service Worker: Error: ${err}`));
+      .register('/service-worker.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError);
+      });
   });
 }

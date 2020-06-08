@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -20,11 +21,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
         test: /\.(woff|woff2|otf|eot|png|svg|jpg|gif|ttf)$/,
@@ -32,9 +29,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/[name].[hash:8].[ext]',
-            },
-          },
+              name: 'assets/[name].[hash:8].[ext]'
+            }
+          }
         ]
       }
     ]
@@ -48,17 +45,21 @@ module.exports = {
       Actions: path.resolve(__dirname, 'src/actions/'),
       Messages: path.resolve(__dirname, 'src/components/common/Messages/'),
       Components: path.resolve(__dirname, 'src/components/'),
-      Pages: path.resolve(__dirname, 'src/pages/'),
+      Pages: path.resolve(__dirname, 'src/pages/')
     }
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "styles.css",
-      chunkFilename: "[name].css"
+      filename: 'styles.css',
+      chunkFilename: '[name].css'
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico'
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     }),
     new Dotenv({
       path: './.env',
@@ -68,4 +69,4 @@ module.exports = {
       defaults: false
     })
   ]
-}
+};

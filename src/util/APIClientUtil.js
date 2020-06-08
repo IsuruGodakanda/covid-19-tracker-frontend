@@ -1,10 +1,10 @@
 import axios from 'axios';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-const APIClientUtil = async (method, url, body, headers, additionalkeyvalue) => {
+const APIClientUtil = async (method, url, body, headers, additionalKeyValue) => {
   let result;
 
-  const dataOrParams = ["POST", "PUT"].includes(method) ? "data" : "params";
+  const dataOrParams = ['POST', 'PUT'].includes(method) ? 'data' : 'params';
 
   axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -14,29 +14,32 @@ const APIClientUtil = async (method, url, body, headers, additionalkeyvalue) => 
       method,
       headers,
       [dataOrParams]: body,
-      ... additionalkeyvalue &&  { 
-        [additionalkeyvalue.key]: additionalkeyvalue.value
-      }
+      ...(additionalKeyValue && {
+        [additionalKeyValue.key]: additionalKeyValue.value
+      })
     })
-    .then(res => {
+    .then((res) => {
       result = res;
     })
-    .catch(error => {
-      if (error.response && (error.response.status === 403 || (error.response.status === 401 && sessionStorage.userToken))) {
-        sessionStorage.removeItem("userToken");
+    .catch((error) => {
+      if (
+        error.response &&
+        (error.response.status === 403 || (error.response.status === 401 && sessionStorage.userToken))
+      ) {
+        sessionStorage.removeItem('userToken');
         if (error.response.status === 403) {
-          sessionStorage.setItem('serverError', "Access denied");
+          sessionStorage.setItem('serverError', 'Access denied');
         } else {
-          sessionStorage.setItem('serverError', "Invalid username or password.");
+          sessionStorage.setItem('serverError', 'Invalid username or password.');
         }
-        location.replace("/");
+        location.replace('/');
       } else {
         result = error.response;
       }
-    })
+    });
 
-    return await result;
-}
+  return await result;
+};
 
 APIClientUtil.propTypes = {
   method: PropTypes.string,

@@ -48,7 +48,6 @@ class Patient extends Component {
       if (result.status === 200) {
         this.setState({ response: '' });
         this.props.history.push('/');
-        authorizedHeaderData;
       } else {
         this.setState({ response: result.data.msg });
       }
