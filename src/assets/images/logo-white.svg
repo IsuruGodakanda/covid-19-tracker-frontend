@@ -1,0 +1,12 @@
+<svg width="300" height="45" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="47" width="302" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text style="cursor: move;" stroke="#000" transform="matrix(1.6374173164367676,0,0,1.6374173164367676,0,-0.766892708837986) " font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_1" y="22.819269" x="0.003711" stroke-width="0" fill="#ffffff">Covid-19</text>
+  <text stroke="#000" transform="matrix(1.5639135837554932,0,0,1.5639135837554932,-63.4314670227468,-0.9075484238564968) " font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Shadows Into Light', serif" font-size="24" id="svg_3" y="22.819269" x="152.146285" stroke-width="0" fill="#ffffff">Tracker</text>
+ </g>
+</svg>
