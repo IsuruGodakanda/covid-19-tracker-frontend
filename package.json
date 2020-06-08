@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --port 3000 --open --history-api-fallback --hot",
     "watch": "webpack-dev-server --mode development --port 3000 --open --history-api-fallback --hot --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy": "rm -rf build && yarn build && aws s3 sync build/ s3://static-web-hosting-ig --acl public-read"
   },
   "keywords": [
     "React",
