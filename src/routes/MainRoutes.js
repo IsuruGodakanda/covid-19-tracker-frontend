@@ -1,25 +1,23 @@
-import React, { Component, Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Spinner from 'Common/Spinner';
+import Spinner from 'Packages/Spinner';
 
-const Dashboard = lazy(() => import('Pages/Dashboard'));
-const Patient = lazy(() => import('Pages/Patient'));
-const NotFound = lazy(() => import('Components/common/NotFound'));
+const Dashboard = lazy(() => import('Pages/dashboard'));
+const Patient = lazy(() => import('Pages/patient'));
+const NotFound = lazy(() => import('Packages/NotFound'));
 
-class MainRoutes extends Component {
-  render() {
-    return (
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route exact path='/' component={Dashboard} />
-          <Route exact path='/addPayment' component={Patient} />
+const MainRoutes = () => {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <Switch>
+        <Route exact path='/' component={Dashboard} />
+        <Route exact path='/addPayment' component={Patient} />
 
-          <Route component={NotFound} />
-        </Switch>
-      </Suspense>
-    );
-  }
-}
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+};
 
 export default MainRoutes;

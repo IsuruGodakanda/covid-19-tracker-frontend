@@ -1,66 +1,8 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/preflight";
- */
 @tailwind preflight;
 
-/**
-  * This injects any component classes registered by plugins.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/components";
-  */
 @tailwind components;
 
-/**
-  * Here you would add any of your custom component classes; stuff that you'd
-  * want loaded *before* the utilities so that the utilities could still
-  * override them.
-  *
-  * Example:
-  *
-  * .btn { ... }
-  * .form-input { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "components/buttons";
-  * @import "components/forms";
-  */
-
-/**
-  * This injects all of Tailwind's utility classes, generated based on your
-  * config file.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/utilities";
-  */
-
 @tailwind utilities;
-
-/**
-  * Here you would add any custom utilities you need that don't come out of the
-  * box with Tailwind.
-  *
-  * Example :
-  *
-  * .bg-pattern-graph-paper { ... }
-  * .skew-45 { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "utilities/background-patterns";
-  * @import "utilities/skew-transforms";
-  */
 
 body {
   margin: 0;
@@ -71,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 @font-face {
   font-family: 'CircularBold';
   src: url('./assets/fonts/lineto-circular-bold.eot');
@@ -95,16 +38,13 @@ body {
   height: 2em;
   vertical-align: middle;
 }
-.imgLogout {
-  width: auto;
-  height: 62px;
-  vertical-align: middle;
-}
+
 a {
   text-decoration: underline;
   color: #2696d9;
   font-size: 16px;
 }
+
 h2,
 .h2-title {
   font-family: 'CircularBold';
@@ -116,6 +56,7 @@ h2,
   letter-spacing: 0.7px;
   color: #323840;
 }
+
 h4 {
   font-family: 'CircularBook';
   font-size: 28px;
@@ -126,6 +67,7 @@ h4 {
   letter-spacing: 0.4px;
   color: #707c91;
 }
+
 h6 {
   font-family: 'CircularBook';
   font-size: 18px;
@@ -135,57 +77,6 @@ h6 {
   line-height: normal;
   letter-spacing: normal;
   color: #7c7c7c;
-}
-.formTitle {
-  font-family: 'CircularBook';
-  font-size: 36px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.3px;
-  color: #696969;
-}
-.title1 {
-  font-family: 'CircularBook';
-  font-size: 48px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #4a4a4a;
-}
-.sub-title1 {
-  font-family: 'CircularBook';
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.2px;
-  color: #4a4a4a;
-}
-.smallLink {
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2.25;
-  letter-spacing: 0.4px;
-  color: #2696d9;
-}
-.smallLink2 {
-  font-family: 'CircularBook';
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2.25;
-  letter-spacing: 0.4px;
-  text-align: right;
-  color: #2696d9;
 }
 .customInput {
   font-family: 'CircularBook' !important;
@@ -198,19 +89,16 @@ h6 {
   color: #4a4a4a;
   height: 40px;
   border-radius: 6px;
-  /* border-top: solid 3px #d8d8d8;
-  border-right: solid 3px #d8d8d8;
-  border-bottom: solid 3px #d8d8d8; */
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
+
 input[type='text'],
 select {
   font-family: 'CircularBook' !important;
   height: 40px;
   font-size: 14px;
   border-radius: 6px;
-  /* border: solid 3px #d8d8d8; */
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
@@ -341,42 +229,9 @@ input[type='checkbox'] ~ .checkmark:after {
   color: #ce7b01;
 }
 
-/* BRAND COLORS */
-.grey-medium {
-  color: #494949;
-}
-/* .blue-link, a:visited {color:#66A9DB} */
-
 /* BUTTON STYLES */
 .disabled {
   background-color: #cfcfcf;
-}
-
-/* Dialog box Styles */
-.modalStyles {
-  width: 500px;
-  margin: 50px auto;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #e0e0e0;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 15px 10px 20px 0px;
-}
-
-.modalBgStyles {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #e0e0e0;
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 0;
-  left: 0;
 }
 
 @media (max-width: 375px) {
@@ -386,20 +241,6 @@ input[type='checkbox'] ~ .checkmark:after {
   .imgLogo {
     height: 1.5em;
   }
-  .imgLogout {
-    height: 42px;
-  }
-}
-
-.dialogCloseButtonStyles {
-  cursor: pointer;
-  border-radius: 50%;
-  border: none;
-  width: 30px;
-  height: 30px;
-  font-weight: bold;
-  align-self: flex-end;
-  position: absolute;
 }
 
 .flexParent {

@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -38,14 +37,12 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Images: path.resolve(__dirname, 'src/assets/images/'),
-      Utils: path.resolve(__dirname, 'src/util/'),
-      FormFields: path.resolve(__dirname, 'src/components/common/FormFields/'),
-      Common: path.resolve(__dirname, 'src/components/common/'),
       Actions: path.resolve(__dirname, 'src/actions/'),
-      Messages: path.resolve(__dirname, 'src/components/common/Messages/'),
-      Components: path.resolve(__dirname, 'src/components/'),
-      Pages: path.resolve(__dirname, 'src/pages/')
+      FormFields: path.resolve(__dirname, 'src/packages/FormFields/'),
+      Images: path.resolve(__dirname, 'src/assets/images/'),
+      Packages: path.resolve(__dirname, 'src/packages/'),
+      Pages: path.resolve(__dirname, 'src/pages/'),
+      Utils: path.resolve(__dirname, 'src/util/')
     }
   },
   plugins: [
@@ -56,10 +53,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico'
-    }),
-    new WorkboxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true
     }),
     new Dotenv({
       path: './.env',

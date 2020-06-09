@@ -1,13 +1,41 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
+import React from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import TextFieldInput from 'FormFields/TextFieldInput';
+import PatientValidations from './validation/patient-validations';
+import { onboardPatient } from 'Actions/patientActions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-class PatientForm extends Component {
-  render() {
-    return (
+const Patient = ({ onboardPatient }) => {
+  const history = useHistory();
+
+  const [formData, setFormData] = React.useState({
+    name: '',
+    nic: '',
+    address: ''
+  });
+  const [errors, setErrors] = React.useState([]);
+
+  const { name, nic, address } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    delete errors[e.target.name];
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (PatientValidations(formData).isValid) {
+      onboardPatient({ name, nic, address }, history);
+    } else {
+      setErrors(PatientValidations(formData).errors);
+    }
+  };
+
+  return (
+    <div className='container mx-auto px-8 pb-4 lg:px-24 lg:pb-8'>
       <div className='py-6'>
-        <form className='text-base'>
+        <form className='text-base' onSubmit={(e) => onSubmit(e)}>
           <div className='flex flex-row'>
             <div className='w-3/4'>
               <h3>Add Patient</h3>
@@ -20,11 +48,11 @@ class PatientForm extends Component {
                       name='name'
                       type='text'
                       placeholder='Full Name*'
-                      onChange={this.props.onChange}
+                      onChange={(e) => onChange(e)}
                       customStyle='w-full'
                       containerStyle='flex flex-row'
-                      value={this.props.states.name}
-                      error={this.props.states.errors.name}
+                      value={name}
+                      error={errors.name}
                       maxLength='50'
                     />
                   </div>
@@ -37,11 +65,11 @@ class PatientForm extends Component {
                       name='nic'
                       type='text'
                       placeholder='NIC eg: 123456789V'
-                      onChange={this.props.onChange}
+                      onChange={(e) => onChange(e)}
                       customStyle='w-full'
                       containerStyle='flex flex-row'
-                      value={this.props.states.nic}
-                      error={this.props.states.errors.nic}
+                      value={nic}
+                      error={errors.nic}
                       maxLength='10'
                     />
                   </div>
@@ -54,11 +82,11 @@ class PatientForm extends Component {
                       name='address'
                       type='text'
                       placeholder='eg: No.200, Bake Rd, Colombo'
-                      onChange={this.props.onChange}
+                      onChange={(e) => onChange(e)}
                       customStyle='w-full'
                       containerStyle='flex flex-row'
-                      value={this.props.states.address}
-                      error={this.props.states.errors.address}
+                      value={address}
+                      error={errors.address}
                       maxLength='80'
                     />
                   </div>
@@ -67,27 +95,26 @@ class PatientForm extends Component {
 
               <section className='pb-8'>
                 <div className='text-center py-8'>
-                  <button
-                    onClick={this.props.addPatient}
+                  <input
+                    type='submit'
                     className='text-white font-bold md:text-xl lg:text-xl bg-btn-primary hover:bg-btn-primary-hover px-4 py-2 rounded-full w-2/5 '
-                  >
-                    Add Patient
-                  </button>
+                    value='Add Patient'
+                  />
                   <div className='mt-4'>
                     <Link to='/'>Cancel</Link>
                   </div>
                 </div>
               </section>
             </div>
-
-            {/* <div className='w-1/4'>
-              
-            </div> */}
           </div>
         </form>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default withRouter(PatientForm);
+Patient.propTypes = {
+  onboardPatient: PropTypes.func.isRequired
+};
+
+export default connect(null, { onboardPatient })(Patient);

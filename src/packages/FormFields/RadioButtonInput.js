@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const RadioButtonInput = ({
   id,
@@ -18,26 +18,23 @@ const RadioButtonInput = ({
 }) => {
   return (
     <>
-      <div className={!changeDefaultStyles ? (error && type === "radio" ? "relative pt-2 " + containerStyle + " radioInputError" : "relative pt-2 " + containerStyle) : containerStyle}>
+      <div className={`relative pt-2 ${error && type === 'radio' && 'radioInputError'} ${containerStyle}`}>
         <input
           id={id}
           type={type}
-          className={!changeDefaultStyles ? ("mr-2 " + customStyle) : customStyle}
+          className={!changeDefaultStyles ? 'mr-2 ' + customStyle : customStyle}
           name={name}
           value={value}
-          checked={type === "radio" ? checked === value : value}
+          checked={type === 'radio' ? checked === value : value}
           onChange={onChange}
           disabled={disabled}
         />
-        <span className="checkmark"></span>
-        <label htmlFor={id} className={"text-si-grey-darker pl-10 relative " + labelStyle}>
+        <span className='checkmark'></span>
+        <label htmlFor={id} className={'text-si-grey-darker pl-10 relative ' + labelStyle}>
           {label}
         </label>
       </div>
-      {error && type === "checkbox" &&
-      <div className="text-sm text-error py-2 ml-10 ">	
-        {error}
-      </div>}
+      {error && type === 'checkbox' && <div className='text-sm text-error py-2 ml-10 '>{error}</div>}
     </>
   );
 };
@@ -55,6 +52,6 @@ RadioButtonInput.propTypes = {
   containerStyle: PropTypes.string,
   changeDefaultStyles: PropTypes.bool,
   error: PropTypes.string
-}
+};
 
 export default RadioButtonInput;

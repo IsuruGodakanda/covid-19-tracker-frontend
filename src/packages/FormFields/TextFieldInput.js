@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TextFieldInput = ({
   id,
@@ -21,26 +21,28 @@ const TextFieldInput = ({
   changeDefaultStyles
 }) => {
   focus = () => {
-    document.getElementById(id+"-container").classList.replace("border-si-grey-light", "border-si-grey-dark");
-
-  }
+    document.getElementById(id + '-container').classList.replace('border-si-grey-light', 'border-si-grey-dark');
+  };
 
   blur = () => {
-    document.getElementById(id+"-container").classList.replace("border-si-grey-dark", "border-si-grey-light");
-  }
+    document.getElementById(id + '-container').classList.replace('border-si-grey-dark', 'border-si-grey-light');
+  };
 
   return (
     <>
-      <div id={id+"-container"} className={!changeDefaultStyles ? (error ? containerStyle + " customBorder border-si-grey-light rounded-lg textInputError" : containerStyle + " customBorder border-si-grey-light rounded-lg") : containerStyle}>
-        {icon &&
-          <span style={iconPositionRight ? {order: 1} : {order: 0}} className="flex items-center px-3">
-            <img src={icon} className="" alt="" />
+      <div
+        id={id + '-container'}
+        className={`customBorder border-si-grey-light rounded-lg ${error && 'textInputError'} ${containerStyle}`}
+      >
+        {icon && (
+          <span style={iconPositionRight ? { order: 1 } : { order: 0 }} className='flex items-center px-3'>
+            <img src={icon} className='' alt='' />
           </span>
-        }
+        )}
         <input
           id={id}
           type={type}
-          className={!changeDefaultStyles ? ("px-2 py-4 customInput focus:outline-none " + customStyle) : customStyle}
+          className={`${!changeDefaultStyles && 'px-2 py-4 customInput focus:outline-none '}${customStyle}`}
           placeholder={placeholder}
           name={name}
           value={value}
@@ -52,7 +54,7 @@ const TextFieldInput = ({
           onBlur={() => blur()}
         />
       </div>
-      {error && <div className="flexChild text-sm text-error py-2">{error}</div>}
+      {error && <div className='flexChild text-sm text-error py-2'>{error}</div>}
     </>
   );
 };
@@ -74,7 +76,7 @@ TextFieldInput.propTypes = {
   readonly: PropTypes.bool,
   focus: PropTypes.func,
   blur: PropTypes.func,
-  changeDefaultStyles: PropTypes.bool,
-}
+  changeDefaultStyles: PropTypes.bool
+};
 
 export default TextFieldInput;
