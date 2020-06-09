@@ -1,4 +1,4 @@
-@tailwind preflight;
+@tailwind base;
 
 @tailwind components;
 
@@ -40,7 +40,6 @@ body {
 }
 
 a {
-  text-decoration: underline;
   color: #2696d9;
   font-size: 16px;
 }

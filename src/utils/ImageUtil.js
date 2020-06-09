@@ -2,7 +2,7 @@
 // ## The Images path alias is configured in the webpack.config.js.
 
 // ## Branding ## //
-export { default as siLogo } from 'Images/logo.svg';
+export { default as covidTrackerLogo } from 'Images/logo.svg';
 export { default as logoWhite } from 'Images/logo-white.svg';
 
 export { default as notification } from 'Images/notification.svg';

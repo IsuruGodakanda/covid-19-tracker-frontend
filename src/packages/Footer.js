@@ -1,25 +1,52 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { logoWhite, fb, twitter } from 'Utils/ImageUtil';
 
 const Footer = () => {
   return (
-    <div id='footer' className='text-white py-4'>
-      <div className='container mx-auto sm:flex px-4 lg:px-24'>
-        <div className='text-center sm:text-left sm:flex-col'>
-          <img src={logoWhite} alt='' />
-          <p className='sub-title mt-2'>Copyright 2020</p>
+    <footer className='bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-10 sm:py-10'>
+      <div className='text-center sm:text-left sm:flex-col px-4 py-3'>
+        <Link to='/'>
+          <img className='inline' src={logoWhite} alt='' />
+        </Link>
+        <p className='mt-2 cursor-default text-ezit-copyright-gray'>Copyright © 2020 Isuru Godakanda, Inc.</p>
+      </div>
+
+      <div className='sm:flex sm:flex-row sm:mt-0 px-4 py-3 mx-auto text-xs tracking-wide leading-loose border-t border-gray-800 sm:border-none text-white'>
+        <div className='flex flex-col sm:mr-4'>
+          <ul className='list-reset text-center sm:text-left cursor-pointer'>
+            <li className='hover:underline hover:font-bold'>Privacy Policy</li>
+            <li className='hover:underline hover:font-bold'>Terms of Service</li>
+            <li className='hover:underline hover:font-bold'>Licences</li>
+          </ul>
         </div>
-        <div className='text-center sm:text-right flex-1 mt-2 md:mt-2'>
-          <a href='https://www.facebook.com/surroundinsurance/' target='_blank'>
-            <img src={fb} alt='Surround Insurance on Facebook' className='w-6 mr-1 md:w-10 md:mr-2' />
-          </a>
-          <a href='https://twitter.com/SurroundInsure' target='_blank'>
-            <img src={twitter} alt='Surround Insurance on Twitter' className='w-6 ml-1 md:w-10 md:ml-2' />
-          </a>
+        <div className='flex flex-col sm:ml-4 text-xs tracking-si-body3 leading-si-leading1'>
+          <ul className='list-reset text-center sm:text-left cursor-pointer'>
+            <li className='hover:underline hover:font-bold'>Help Center</li>
+            <li className='hover:underline hover:font-bold'>Report a Claim</li>
+            <li className='hover:underline hover:font-bold'>Contact Us</li>
+          </ul>
         </div>
       </div>
-    </div>
+
+      <div className='text-center flex-col px-4 py-3 sm:mt-0 border-t border-gray-800 sm:border-none'>
+        <a href='/' target='_blank'>
+          <img
+            src={fb}
+            alt='Surround Insurance on Facebook'
+            className='inline rounded w-6 mr-1 hover:bg-ezit-fb-blue'
+          />
+        </a>
+        <a href='/' target='_blank'>
+          <img
+            src={twitter}
+            alt='Surround Insurance on Twitter'
+            className='inline rounded w-6 ml-1 hover:bg-ezit-twitter-blue'
+          />
+        </a>
+      </div>
+    </footer>
   );
 };
 

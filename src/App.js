@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './redux/store';
 
 import Header from 'Packages/Header';
 import Footer from 'Packages/Footer';
@@ -12,15 +12,17 @@ import MainRoutes from './routes/MainRoutes';
 const App = () => {
   return (
     <Provider store={store}>
-      <Router>
-        <div>
-          <Header />
-          <ErrorBoundary>
-            <MainRoutes />
-          </ErrorBoundary>
-          <Footer />
-        </div>
-      </Router>
+      <div className='flex flex-col h-screen justify-between'>
+        <Router>
+          <div>
+            <Header />
+            <ErrorBoundary>
+              <MainRoutes />
+            </ErrorBoundary>
+            <Footer />
+          </div>
+        </Router>
+      </div>
     </Provider>
   );
 };
