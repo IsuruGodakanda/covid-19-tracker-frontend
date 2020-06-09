@@ -101,7 +101,9 @@ const SelectFieldInput = ({
     <>
       <div
         id={id + '-container'}
-        className={`border-si-grey-light border-3 rounded-lg ${error && 'textInputError'} ${containerStyle}`}
+        className={`customBorder border-si-grey-light border-3 rounded-lg ${
+          error && 'textInputError'
+        } ${containerStyle}`}
       >
         <span style={iconPositionRight ? { order: 1 } : { order: 0 }} className={`flex items-center ${icon && 'pr-2'}`}>
           <img src={icon} className={iconStyle} alt='' />
@@ -139,6 +141,7 @@ const SelectFieldInput = ({
             onFocus={() => focus()}
             onBlur={() => blur()}
           >
+            <option key='' value=''>{`Select ${name}`}</option>
             {selectOptions}
           </select>
         )}
@@ -151,7 +154,7 @@ const SelectFieldInput = ({
 SelectFieldInput.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
-  value: PropTypes.array,
+  value: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func,

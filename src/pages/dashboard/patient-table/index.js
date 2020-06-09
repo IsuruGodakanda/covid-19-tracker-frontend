@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ReactTable from 'react-table';
 import Pagination from 'Packages/Pagination';
+import DistrictList from 'Lists/districts';
 
 import './index.css';
 import 'react-table/react-table.css';
@@ -22,10 +23,28 @@ const PatientDataTable = (props) => {
             accessor: (d) => d.name
           },
           {
+            Header: 'Age',
+            id: 'age',
+            maxWidth: 200,
+            accessor: (d) => d.age
+          },
+          {
             Header: 'Address',
             id: 'address',
             maxWidth: 200,
             accessor: (d) => d.address
+          },
+          {
+            Header: 'District',
+            id: 'district',
+            maxWidth: 200,
+            accessor: (d) => d.district
+          },
+          {
+            Header: 'Medical History',
+            id: 'medical_history',
+            maxWidth: 200,
+            accessor: (d) => d.medical_history
           }
         ]}
         defaultPageSize={100}

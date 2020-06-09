@@ -158,6 +158,7 @@ module.exports = {
       Actions: path.resolve(__dirname, 'src/redux/actions/'),
       FormFields: path.resolve(__dirname, 'src/packages/FormFields/'),
       Images: path.resolve(__dirname, 'src/assets/images/'),
+      Lists: path.resolve(__dirname, 'src/utils/ListUtil/'),
       Packages: path.resolve(__dirname, 'src/packages/'),
       Pages: path.resolve(__dirname, 'src/pages/'),
       Utils: path.resolve(__dirname, 'src/utils/')

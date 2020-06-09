@@ -16,8 +16,24 @@ const PatientValidations = (patientData) => {
     errors.nic = 'Valid national ID field is required: eg:123456789V';
   }
 
+  if (isEmpty(patientData.age)) {
+    errors.age = 'Age field is required';
+  }
+
+  if (isEmpty(patientData.gender)) {
+    errors.gender = 'Gender field is required';
+  }
+
+  if (isEmpty(patientData.medical_history)) {
+    errors.medical_history = 'Medical history field is required';
+  }
+
   if (isEmpty(patientData.address)) {
     errors.address = 'Address field is required';
+  }
+
+  if (isEmpty(patientData.district)) {
+    errors.district = 'District field is required';
   }
 
   return {

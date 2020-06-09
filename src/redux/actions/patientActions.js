@@ -16,8 +16,10 @@ export const getPatients = () => async (dispatch) => {
 };
 
 // Onboard Patient
-export const onboardPatient = ({ name, nic, address }, history) => async (dispatch) => {
-  const body = await JSON.stringify({ name, nic, address });
+export const onboardPatient = ({ name, nic, age, gender, medical_history, address, district }, history) => async (
+  dispatch
+) => {
+  const body = await JSON.stringify({ name, nic, age, gender, medical_history, address, district });
   const result = await patientUtil('postData', body, '/onboard');
 
   if (result.status === 200) {
