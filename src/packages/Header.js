@@ -50,7 +50,7 @@ const Header = () => {
               src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80'
               alt='Your avatar'
             />
-            <span className='ml-3 font-semibold text-white'>Tharushi De Silva</span>
+            <span className='ml-3 font-semibold text-white'>Brian Adams</span>
           </div>
           <div className='mt-4'>
             <a href='/' className='block text-gray-400 hover:text-white'>

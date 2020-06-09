@@ -14,13 +14,11 @@ const App = () => {
     <Provider store={store}>
       <div className='flex flex-col h-screen justify-between'>
         <Router>
-          <div>
-            <Header />
-            <ErrorBoundary>
-              <MainRoutes />
-            </ErrorBoundary>
-            <Footer />
-          </div>
+          <Header />
+          <ErrorBoundary>
+            <MainRoutes />
+          </ErrorBoundary>
+          <Footer />
         </Router>
       </div>
     </Provider>

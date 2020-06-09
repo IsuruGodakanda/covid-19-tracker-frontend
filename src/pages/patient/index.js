@@ -35,7 +35,7 @@ const Patient = ({ onboardPatient }) => {
 
   return (
     <MainCard>
-      <div className='container mx-auto px-8 pb-4 lg:px-24 lg:pb-8'>
+      <div className='container mx-auto pt-4'>
         <h4>Patient Onboarding</h4>
         <div className='py-6'>
           <form className='text-base' onSubmit={(e) => onSubmit(e)}>
@@ -99,10 +99,10 @@ const Patient = ({ onboardPatient }) => {
                   <div className='text-center py-8'>
                     <input
                       type='submit'
-                      className='text-white font-bold md:text-xl lg:text-xl bg-btn-primary hover:bg-btn-primary-hover px-4 py-2 rounded-full w-2/5 '
+                      className='text-white font-bold md:text-xl lg:text-xl bg-ezit-btn-primary hover:bg-ezit-btn-primary-hover px-4 py-2 rounded-full md:w-2/5 lg:w-1/5 cursor-pointer '
                       value='Add Patient'
                     />
-                    <div className='mt-4'>
+                    <div className='mt-4 underline'>
                       <Link to='/'>Cancel</Link>
                     </div>
                   </div>
