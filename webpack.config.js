@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const config = require('./src/config');
@@ -192,6 +193,10 @@ module.exports = {
           systemvars: true,
           silent: true,
           defaults: false
+        }),
+        new WorkboxWebpackPlugin.InjectManifest({
+          swSrc: './src/src-sw.js',
+          swDest: 'sw.js'
         })
       ]
     : [
@@ -204,6 +209,10 @@ module.exports = {
           systemvars: true,
           silent: true,
           defaults: false
+        }),
+        new WorkboxWebpackPlugin.InjectManifest({
+          swSrc: './src/src-sw.js',
+          swDest: 'sw.js'
         })
       ]
 };
